@@ -67,11 +67,13 @@ namespace GigHub.Controllers
                 GenreId = viewModel.Genre,
                 Venue = viewModel.Venue
             };
-
+            
             _context.Gigs.Add(gig);
             _context.SaveChanges();
 
             return RedirectToAction("Index", "Home");
+
+            //this is for verificationn purpose
         }
     }
 }
