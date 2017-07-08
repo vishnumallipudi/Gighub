@@ -127,11 +127,8 @@ namespace GigHub.Controllers
             var gig = _context.Gigs
                 .Single(g=>g.Id==viewModel.Id&&g.ArtistId==userID);
 
-            gig.Venue = viewModel.Venue;
-            gig.DateTime = viewModel.GetDateTime();
-            gig.GenreId = viewModel.Genre;
-
-            
+            gig.Modify(viewModel.GetDateTime(), viewModel.Venue, viewModel.Genre);
+                 
             _context.SaveChanges();
 
             return RedirectToAction("Mine", "Gigs");
